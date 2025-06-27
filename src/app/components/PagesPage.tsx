@@ -1,5 +1,5 @@
 
-const DataPage = () => {
+const Pages = () => {
   return (
     <main>
       <section>
@@ -9,4 +9,4 @@ const DataPage = () => {
   )
 }
 
-export default DataPage;
+export default Pages;
