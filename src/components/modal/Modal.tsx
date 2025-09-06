@@ -1,5 +1,5 @@
-// components/modal/Modal.tsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import ModalPortal from './ModalPortal';
 
 interface ModalProps {
   isOpen: boolean;
@@ -8,27 +8,37 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      // Анимация появления
+      setTimeout(() => setIsVisible(true), 10);
+    } else {
+      setIsVisible(false);
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto">
-      <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+    <ModalPortal containerId="modal-root">
+      <div 
+        className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-[rgba(0,0,0,0.6)] transition-opacity duration-300 ${
+          isVisible ? 'opacity-100' : 'opacity-0'
+        }`}
+        onClick={onClose}
+      >
         <div 
-          className="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" 
-          aria-hidden="true"
-          onClick={onClose}
-        ></div>
-
-        <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-
-        <div 
-          className="inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6"
+          className={`w-full max-w-lg bg-white rounded-lg shadow-xl overflow-hidden transform transition-all duration-300 ${
+            isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
+          }`}
           onClick={e => e.stopPropagation()}
         >
           {children}
         </div>
       </div>
-    </div>
+    </ModalPortal>
   );
 };
 
