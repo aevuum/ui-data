@@ -45,16 +45,17 @@ export const useFilter = <T,>(data: T[], columns: any[]) => {
             : (item as any)[column.key];
           
           if (value == null) return false;
-          if (typeof value === 'string') {
-            return value.toLowerCase().includes(searchText);
+          switch (typeof value) {
+            case 'string':
+              return value.toLowerCase().includes(searchText);
+            case 'number':
+              return value.toString().includes(searchText);
+            default:
+              if (Array.isArray(value)) {
+                return value.some(v => String(v).toLowerCase().includes(searchText));
+              }
+              return String(value).toLowerCase().includes(searchText);
           }
-          if (typeof value === 'number') {
-            return value.toString().includes(searchText);
-          }
-          if (Array.isArray(value)) {
-            return value.some(v => String(v).toLowerCase().includes(searchText));
-          }
-          return String(value).toLowerCase().includes(searchText);
         });
         
         if (!matchesText) return false;
@@ -75,11 +76,10 @@ export const useFilter = <T,>(data: T[], columns: any[]) => {
         
         const itemDate = new Date(itemValue).getTime();
         
-        if (range.from && itemDate < new Date(range.from).getTime()) {
-          return false;
-        }
-        
-        if (range.to && itemDate > new Date(range.to).getTime()) {
+        if (
+          (range.from && itemDate < new Date(range.from).getTime()) ||
+          (range.to && itemDate > new Date(range.to).getTime())
+        ) {
           return false;
         }
       }

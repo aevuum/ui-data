@@ -45,7 +45,6 @@ export const useSort = <T,>(data: T[], initialSort: SortState = { key: null, ord
         : bValue.getTime() - aValue.getTime();
     }
     
-    // Fallback for other types
     const aString = String(aValue);
     const bString = String(bValue);
     return sort.order === 'asc' 
