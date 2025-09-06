@@ -18,19 +18,19 @@ const App: React.FC = () => {
                 <div className="ml-10 flex space-x-4">
                   <Link 
                     to="/products" 
-                    className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+                    className="px-3 py-6 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100"
                   >
                     Продукты
                   </Link>
                   <Link 
                     to="/price-plans" 
-                    className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+                    className="px-3 py-6 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100"
                   >
                     Ценовые планы
                   </Link>
                   <Link 
                     to="/pages" 
-                    className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+                    className="px-3 py-6 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100"
                   >
                     Страницы
                   </Link>
