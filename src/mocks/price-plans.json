@@ -1,0 +1,56 @@
+[
+  {
+    "id": "plan_basic",
+    "name": "Basic Plan",
+    "description": "Perfect for individuals starting out.",
+    "price": 9.99,
+    "currency": "USD",
+    "interval": "monthly",
+    "features": ["5 projects", "10GB storage", "Basic support"],
+    "active": true,
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z",
+    "trialDays": 7,
+    "limits": {
+      "users": 1,
+      "storage": 10,
+      "bandwidth": 100
+    }
+  },
+  {
+    "id": "plan_pro",
+    "name": "Pro Plan",
+    "description": "For professionals and growing teams.",
+    "price": 29.99,
+    "currency": "USD",
+    "interval": "monthly",
+    "features": ["Unlimited projects", "100GB storage", "Priority support", "Custom domain"],
+    "active": true,
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-02-15T10:30:00Z",
+    "trialDays": 14,
+    "limits": {
+      "users": 5,
+      "storage": 100,
+      "bandwidth": 1000
+    }
+  },
+  {
+    "id": "plan_enterprise",
+    "name": "Enterprise Plan",
+    "description": "For large organizations with advanced needs.",
+    "price": 99.99,
+    "currency": "USD",
+    "interval": "monthly",
+    "features": ["Unlimited everything", "Dedicated manager", "SLA 99.9%", "On-premise option"],
+    "active": false,
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-05T16:45:00Z",
+    "trialDays": 30,
+    "limits": {
+      "users": 50,
+      "storage": 1000,
+      "bandwidth": 10000
+    }
+  }
+]
