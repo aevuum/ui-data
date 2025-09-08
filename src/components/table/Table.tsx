@@ -4,7 +4,7 @@ import { useFilter } from '../../hooks/useFilter';
 import { useModal } from '../../hooks/useModal';
 import TableHeader from './TableHeader';
 import TableRow from './TableRow';
-import { ColumnConfig, Entity } from '../../types';
+import type { ColumnConfig, Entity } from '../../types';
 import Filter from '../filter/Filter';
 import Modal from '../modal/Modal';
 import EditForm from '../form/EditForm';
